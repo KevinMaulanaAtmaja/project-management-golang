@@ -5,6 +5,7 @@ import (
 	"github.com/KevinMaulanaAtmaja/project-management-golang/services"
 	"github.com/KevinMaulanaAtmaja/project-management-golang/utils"
 	"github.com/gofiber/fiber/v2"
+	"github.com/jinzhu/copier"
 )
 
 type UserController struct {
@@ -26,5 +27,8 @@ func (c *UserController) Register(ctx *fiber.Ctx) error {
 		return utils.BadRequest(ctx, "Registrasi Gagal", err.Error())
 	}
 
-	return utils.Success(ctx, "Register Success", user)
+	var userResp models.UserResponse
+	_ = copier.Copy(&userResp, &user)
+
+	return utils.Success(ctx, "Register Success", userResp)
 }

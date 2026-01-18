@@ -1,0 +1,71 @@
+{
+  "info": {
+    "_postman_id": "c133fb8c-0062-4b8e-a41f-34220e83d0f2",
+    "name": "project_management_golang",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "register",
+      "id": "75910889-0b0a-4f0a-b009-12effbf1062a",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"kevin\",\r\n    \"email\": \"kevin@gmail.com\",\r\n    \"role\": \"user\",\r\n    \"password\": \"kevin123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{localhost}}/v1/auth/register",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "v1",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "ce4e4e0d-456b-4631-a28b-9866818797e2",
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "8563dc66-4b31-40df-9943-826ce582134f",
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "d5b66c07-bf2b-4e30-92dc-87590129f153",
+      "key": "localhost",
+      "value": ""
+    }
+  ]
+}
