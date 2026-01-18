@@ -1,0 +1,5 @@
+//create new table 
+migrate create -ext sql -dir database/migrations -seq create_user_table
+
+//run migrations
+migrate -path database/migrations -database "postgres://postgres:soeharto@localhost:5432/project-management?sslmode=disable" up
