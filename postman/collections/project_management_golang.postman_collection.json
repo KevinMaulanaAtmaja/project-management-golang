@@ -33,32 +33,35 @@
         }
       },
       "response": []
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "id": "ce4e4e0d-456b-4631-a28b-9866818797e2",
-        "type": "text/javascript",
-        "packages": {},
-        "requests": {},
-        "exec": [
-          ""
-        ]
-      }
     },
     {
-      "listen": "test",
-      "script": {
-        "id": "8563dc66-4b31-40df-9943-826ce582134f",
-        "type": "text/javascript",
-        "packages": {},
-        "requests": {},
-        "exec": [
-          ""
-        ]
-      }
+      "name": "login",
+      "id": "04eaf52c-8ffd-47ed-95c4-8ca74e9ce7c0",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"kevin@gmail.com\",\r\n    \"password\": \"kevin123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{localhost}}/v1/auth/login",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "v1",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
     }
   ],
   "variable": [

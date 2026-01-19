@@ -23,7 +23,7 @@ type User struct {
 
 type UserResponse struct {
 	// utk reponse api ke publik
-	InternalID int64          `json:"internal_id"`
+	PublicID   uuid.UUID      `json:"public_id"`
 	Name       string         `json:"name"`
 	Email      string         `json:"email"`
 	Role       string         `json:"role"`

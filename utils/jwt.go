@@ -9,7 +9,6 @@ import (
 )
 
 // generate token jwt
-// generate refresh token jwt
 func GenerateToken(userID int64, role, email string, publicID uuid.UUID) (string, error) {
 	secret := config.AppConfig.JWTSecret
 	duration, _ := time.ParseDuration(config.AppConfig.JWTExpire)
@@ -20,6 +19,20 @@ func GenerateToken(userID int64, role, email string, publicID uuid.UUID) (string
 		"email":     email,
 		"public_id": publicID,
 		"exp":       time.Now().Add(duration).Unix(),
+	}
+
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	return token.SignedString([]byte(secret))
+}
+
+// generate refresh token jwt
+func GenerateRefreshToken(userID int64) (string, error) {
+	secret := config.AppConfig.JWTSecret
+	duration, _ := time.ParseDuration(config.AppConfig.JWTRefreshToken)
+
+	claims := jwt.MapClaims{
+		"user_id": userID,
+		"exp":     time.Now().Add(duration).Unix(),
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
