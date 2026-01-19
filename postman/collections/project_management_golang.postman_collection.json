@@ -251,23 +251,59 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "delete user",
+      "id": "565c5389-f695-46cf-8173-040061adc6bd",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{localhost}}/v1/users/{{internal_id}}",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "v1",
+            "users",
+            "{{internal_id}}"
+          ]
+        }
+      },
+      "response": []
     }
   ],
   "variable": [
     {
-      "id": "d15ec27c-2c57-46a8-af57-c79adebc18a8",
+      "id": "439c0121-2480-46e0-9f5a-f4f26f02cd6e",
       "key": "localhost",
       "value": ""
     },
     {
-      "id": "5d92841e-9031-4d07-ba7e-4220424cd227",
+      "id": "19403710-e74b-4056-a891-76c7d67fcb0c",
       "key": "token",
       "value": "",
       "type": "default"
     },
     {
-      "id": "a600fc12-28c2-47be-b096-1ee6aaa9b550",
+      "id": "c3988a0c-8ec9-41b5-b9ff-cd943a53e5fd",
       "key": "public_id",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "id": "230422a4-4c3a-4542-9f91-758ca6b3da00",
+      "key": "internal_id",
       "value": "",
       "type": "default"
     }

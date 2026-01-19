@@ -33,5 +33,6 @@ func Setup(app *fiber.App, uc *controllers.UserController) {
 	useGroup.Get("/page", uc.GetUserPagination) //  /api/v1/users/page
 	useGroup.Get("/:id", uc.GetUser)            //  /api/v1/users/:id
 	useGroup.Put("/:id", uc.UpdateUser)         //  /api/v1/users/:id
+	useGroup.Delete("/:id", uc.DeleteUser)      //  /api/v1/users/:id
 
 }
