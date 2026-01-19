@@ -8,6 +8,7 @@ import (
 	"github.com/KevinMaulanaAtmaja/project-management-golang/services"
 	"github.com/KevinMaulanaAtmaja/project-management-golang/utils"
 	"github.com/gofiber/fiber/v2"
+	"github.com/google/uuid"
 	"github.com/jinzhu/copier"
 )
 
@@ -111,4 +112,34 @@ func (c *UserController) GetUserPagination(ctx *fiber.Ctx) error {
 		return utils.NotFoundPagination(ctx, "Data pengguna tidak ditemukan", userResp, meta)
 	}
 	return utils.SuccessPagination(ctx, "Data ditemukan", userResp, meta)
+}
+
+func (c *UserController) UpdateUser(ctx *fiber.Ctx) error {
+	id := ctx.Params("id")
+	publicID, err := uuid.Parse(id)
+	if err != nil {
+		return utils.BadRequest(ctx, "Invalid ID Format", err.Error())
+	}
+
+	var user models.User
+	if err := ctx.BodyParser(&user); err != nil {
+		return utils.BadRequest(ctx, "Gagal Parsing Data", err.Error())
+	}
+	user.PublicID = publicID
+
+	if err := c.service.Update(&user); err != nil {
+		return utils.BadRequest(ctx, "Gagal Update Data", err.Error())
+	}
+
+	userUpdated, err := c.service.GetByPublicID(id)
+	if err != nil {
+		return utils.InternalServerError(ctx, "Gagal Ambil Data", err.Error())
+	}
+
+	var userResp models.UserResponse
+	err = copier.Copy(&userResp, &userUpdated)
+	if err != nil {
+		return utils.InternalServerError(ctx, "Error Parsing Data", err.Error())
+	}
+	return utils.Success(ctx, "Berhasil Update Data", userResp)
 }

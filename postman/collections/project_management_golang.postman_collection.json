@@ -75,7 +75,7 @@
           "bearer": [
             {
               "key": "token",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtldmluQGdtYWlsLmNvbSIsImV4cCI6MTc2OTE4Njc3MSwicHVibGljX2lkIjoiNTZjYjk5MzYtYjUzNC00MWM4LWFjYTgtNzkwMmY4MTg5NjNkIiwicm9sZSI6InVzZXIiLCJ1c2VyX2lkIjozfQ.KlsUbmDSOpwdAZZ09Bd_3PVU7p6RcnBlLkXPaTr1z7A",
+              "value": "{{token}}",
               "type": "string"
             }
           ]
@@ -100,14 +100,14 @@
           }
         },
         "url": {
-          "raw": "{{localhost}}/v1/users/56cb9936-b534-41c8-aca8-7902f818963d",
+          "raw": "{{localhost}}/v1/users/{{public_id}}",
           "host": [
             "{{localhost}}"
           ],
           "path": [
             "v1",
             "users",
-            "56cb9936-b534-41c8-aca8-7902f818963d"
+            "{{public_id}}"
           ]
         }
       },
@@ -122,21 +122,13 @@
           "bearer": [
             {
               "key": "token",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtldmluQGdtYWlsLmNvbSIsImV4cCI6MTc2OTIzOTI1NSwicHVibGljX2lkIjoiNTZjYjk5MzYtYjUzNC00MWM4LWFjYTgtNzkwMmY4MTg5NjNkIiwicm9sZSI6InVzZXIiLCJ1c2VyX2lkIjozfQ.oq6hPjLMMlrNqtsWeK2ZHSKqS2aK-r8b29xPX9QxQHU",
+              "value": "{{token}}",
               "type": "string"
             }
           ]
         },
         "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Bearer      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtldmluQGdtYWlsLmNvbSIsImV4cCI6MTc2OTE4NjU5NiwicHVibGljX2lkIjoiNTZjYjk5MzYtYjUzNC00MWM4LWFjYTgtNzkwMmY4MTg5NjNkIiwicm9sZSI6InVzZXIiLCJ1c2VyX2lkIjozfQ.Cwh8l8n_zygX8TTMi_rn30aIn1u3uaJfOwTcK1EN1zE",
-            "type": "text",
-            "uuid": "610a5aec-e2c9-40fe-8cc0-b40aecb1512c",
-            "disabled": true
-          }
-        ],
+        "header": [],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -169,21 +161,13 @@
           "bearer": [
             {
               "key": "token",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtldmluQGdtYWlsLmNvbSIsImV4cCI6MTc2OTIzOTI1NSwicHVibGljX2lkIjoiNTZjYjk5MzYtYjUzNC00MWM4LWFjYTgtNzkwMmY4MTg5NjNkIiwicm9sZSI6InVzZXIiLCJ1c2VyX2lkIjozfQ.oq6hPjLMMlrNqtsWeK2ZHSKqS2aK-r8b29xPX9QxQHU",
+              "value": "{{token}}",
               "type": "string"
             }
           ]
         },
         "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Bearer      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtldmluQGdtYWlsLmNvbSIsImV4cCI6MTc2OTE4NjU5NiwicHVibGljX2lkIjoiNTZjYjk5MzYtYjUzNC00MWM4LWFjYTgtNzkwMmY4MTg5NjNkIiwicm9sZSI6InVzZXIiLCJ1c2VyX2lkIjozfQ.Cwh8l8n_zygX8TTMi_rn30aIn1u3uaJfOwTcK1EN1zE",
-            "type": "text",
-            "uuid": "610a5aec-e2c9-40fe-8cc0-b40aecb1512c",
-            "disabled": true
-          }
-        ],
+        "header": [],
         "body": {
           "mode": "raw",
           "raw": "",
@@ -228,13 +212,64 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "update user",
+      "id": "c607874d-6a09-4fe6-8b3b-97325f07e9ed",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Kevin Maulana\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{localhost}}/v1/users/{{public_id}}",
+          "host": [
+            "{{localhost}}"
+          ],
+          "path": [
+            "v1",
+            "users",
+            "{{public_id}}"
+          ]
+        }
+      },
+      "response": []
     }
   ],
   "variable": [
     {
-      "id": "d5b66c07-bf2b-4e30-92dc-87590129f153",
+      "id": "d15ec27c-2c57-46a8-af57-c79adebc18a8",
       "key": "localhost",
       "value": ""
+    },
+    {
+      "id": "5d92841e-9031-4d07-ba7e-4220424cd227",
+      "key": "token",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "id": "a600fc12-28c2-47be-b096-1ee6aaa9b550",
+      "key": "public_id",
+      "value": "",
+      "type": "default"
     }
   ]
 }
